@@ -54,3 +54,9 @@ bash run_dpo.sh
 ```
 ## Acknowledgement
 
+Many thanks to the following awesome works!
+
+- [MedicalGPT](https://github.com/shibing624/MedicalGPT)
+- [Transformers](https://github.com/huggingface/transformers)
+- [ZhongJing](https://github.com/SupritYoung/Zhongjing)
+- [BitsAndBytes](https://github.com/TimDettmers/bitsandbytes)
