@@ -1,0 +1,38 @@
+torchrun --nproc_per_node 8 pretraining.py \
+    --model_type baichuan \
+    --model_name_or_path /path/to/baichuan_model \
+    --train_file_dir ./data/pretrain \
+    --per_device_train_batch_size 32 \
+    --per_device_eval_batch_size 4 \
+    --deepspeed config/deepspeed_config_zero2.json \
+    --do_train \
+    --do_eval \
+    --seed 42 \
+    --max_train_samples 100000000 \
+    --max_eval_samples 10000 \
+    --num_train_epochs 5 \
+    --learning_rate 2e-4 \
+    --warmup_ratio 0.05 \
+    --weight_decay 0.01 \
+    --logging_strategy steps \
+    --logging_steps 10 \
+    --eval_steps 1000 \
+    --evaluation_strategy steps \
+    --save_steps 10000 \
+    --save_strategy steps \
+    --save_total_limit 3 \
+    --gradient_accumulation_steps 1 \
+    --preprocessing_num_workers 1 \
+    --block_size 1024 \
+    --output_dir /path/to/output_dir \
+    --overwrite_output_dir \
+    --ddp_timeout 300000 \
+    --logging_first_step True \
+    --bf16 \
+    --use_peft True \
+    --torch_dtype bfloat16 \
+    --device_map auto \
+    --ddp_find_unused_parameters False \
+    --report_to "wandb" \
+    --run_name 'YOUR_EXP_NAME' \
+    --gradient_checkpointing True

@@ -1,0 +1,43 @@
+torchrun --nproc_per_node 8 supervised_finetuning.py \
+    --model_type baichuan \
+    --template_name baichuan-chat \
+    --model_name_or_path /path/to/CPT_model \
+    --train_file_dir /path/to/sft_data \
+    --validation_file_dir /path/to/sft_data \
+    --deepspeed config/deepspeed_config_zero2.json \
+    --per_device_train_batch_size 32 \
+    --per_device_eval_batch_size 4 \
+    --do_train \
+    --do_eval \
+    --use_peft True \
+    --bf16 \
+    --max_train_samples 10000000 \
+    --max_eval_samples 1000 \
+    --num_train_epochs 1 \
+    --learning_rate 2e-5 \
+    --warmup_ratio 0.05 \
+    --weight_decay 0.05 \
+    --logging_strategy steps \
+    --logging_steps 10 \
+    --eval_steps 50 \
+    --evaluation_strategy steps \
+    --save_steps 5000 \
+    --save_strategy steps \
+    --save_total_limit 3 \
+    --gradient_accumulation_steps 1 \
+    --preprocessing_num_workers 1 \
+    --max_source_length 256 \
+    --max_target_length 256 \
+    --output_dir /path/to/output_dir \
+    --overwrite_output_dir \
+    --ddp_timeout 30000 \
+    --logging_first_step True \
+    --target_modules all \
+    --lora_rank 8 \
+    --lora_alpha 32 \
+    --lora_dropout 0.05 \
+    --torch_dtype bfloat16 \
+    --device_map auto \
+    --ddp_find_unused_parameters False \
+    --gradient_checkpointing True
+
