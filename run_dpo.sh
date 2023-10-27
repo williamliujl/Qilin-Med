@@ -1,4 +1,4 @@
-torchrun --nproc_per_node 8 python dpo_training.py \
+torchrun --nproc_per_node 8 cripts/dpo_training.py \
     --model_type baichuan \
     --model_name_or_path /path/to/SFT_model \
     --train_file_dir /path/to/DPO_data \

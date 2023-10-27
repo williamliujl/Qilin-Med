@@ -1,4 +1,4 @@
-torchrun --nproc_per_node 8 pretraining.py \
+torchrun --nproc_per_node 8 scripts/pretraining.py \
     --model_type baichuan \
     --model_name_or_path /path/to/baichuan_model \
     --train_file_dir ./data/pretrain \

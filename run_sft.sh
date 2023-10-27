@@ -1,4 +1,4 @@
-torchrun --nproc_per_node 8 supervised_finetuning.py \
+torchrun --nproc_per_node 8 scripts/supervised_finetuning.py \
     --model_type baichuan \
     --template_name baichuan-chat \
     --model_name_or_path /path/to/CPT_model \
