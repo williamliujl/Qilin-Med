@@ -1,8 +1,7 @@
 torchrun --nproc_per_node 8 cripts/dpo_training.py \
     --model_type baichuan \
-    --model_name_or_path /path/to/SFT_model \
-    --train_file_dir /path/to/DPO_data \
-    --validation_file_dir /path/to/DPO_data \
+    --model_name_or_path ./checkpoints/Qilin-Med-SFT-merged \
+    --train_file_dir ./data/dpo \
     --per_device_train_batch_size 32 \
     --per_device_eval_batch_size 4 \
     --deepspeed config/deepspeed_config_zero2.json \
@@ -16,7 +15,7 @@ torchrun --nproc_per_node 8 cripts/dpo_training.py \
     --save_steps 1000 \
     --max_source_length 1024 \
     --max_target_length 128 \
-    --output_dir /path/to/output_dir \
+    --output_dir ./checkpoints/Qilin-Med-DPO \
     --target_modules all \
     --lora_rank 8 \
     --lora_alpha 16 \

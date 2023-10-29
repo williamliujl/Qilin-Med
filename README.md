@@ -25,7 +25,7 @@ and dialogues, segmented into three training stages. The medical LLM trained wit
 Our ChiMed dataset is avalibale at [here](https://huggingface.co/datasets/williamliu/ChiMed/tree/main), which containing the following three parts:
 - ChiMed-Pretrain(`cpt.txt`), 
 - ChiMed-SFT(`sft.jsonl`)
-- ChiMed-DPO
+- ChiMed-DPO(`dpo.json`)
 
 ## Stage 1: Domain-specific Continued Pretraining
 Put the CHiMed-Pretrain data (i.e., `cpt.txt`) at `data/pretrain/`, then run the following scripts.
@@ -38,6 +38,7 @@ Put the CHiMed-SFT data (i.e., `sft.jsonl`) at `data/sft/`, then run the followi
 bash run_sft.sh
 ```
 ## Stage 3: Direct Preference Optimization
+Put the CHiMed-DPO data (i.e., `dpo.json`) at `data/dpo/`, then using `scripts/merge_peft_adapter.py` to merge the sft adapter with `Qilin-Med-Pretrained`, then put the resulting model to `checkpoints/Qilin-Med-SFT-merged`. Finally run the following scripts.
 ```
 bash run_dpo.sh
 ```

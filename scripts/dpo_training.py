@@ -217,6 +217,8 @@ def return_prompt_and_responses(examples) -> Dict[str, str]:
     Prompts are structured as follows:
       "Question: " + <prompt> + "\n\nAnswer: "
     """
+
+    # TODO: support dialogue format
     return {
         "prompt": ["Question: " + question + "\n\nAnswer: " for question in examples["question"]],
         "chosen": examples["response_chosen"],
@@ -245,8 +247,7 @@ def main():
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token_id = 0  # set as the <unk> token
     data_files = {
-        'train': [args.train_file_dir],
-        'validation': [args.validation_file_dir]
+        'train': [f'{args.train_file_dir}/dpo.json'],
     }
     raw_datasets = load_dataset(
         'json',

@@ -28,7 +28,7 @@ torchrun --nproc_per_node 8 scripts/supervised_finetuning.py \
     --preprocessing_num_workers 1 \
     --max_source_length 256 \
     --max_target_length 256 \
-    --output_dir /path/to/output_dir \
+    --output_dir ./checkpoints/Qilin-Med-SFT \
     --overwrite_output_dir \
     --ddp_timeout 30000 \
     --logging_first_step True \
