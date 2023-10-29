@@ -1,6 +1,6 @@
 torchrun --nproc_per_node 8 scripts/pretraining.py \
     --model_type baichuan \
-    --model_name_or_path /path/to/baichuan_model \
+    --model_name_or_path baichuan-inc/Baichuan2-13B-Chat \
     --train_file_dir ./data/pretrain \
     --per_device_train_batch_size 32 \
     --per_device_eval_batch_size 4 \
@@ -24,12 +24,12 @@ torchrun --nproc_per_node 8 scripts/pretraining.py \
     --gradient_accumulation_steps 1 \
     --preprocessing_num_workers 1 \
     --block_size 1024 \
-    --output_dir /path/to/output_dir \
+    --output_dir ./checkpoints/Qilin-Med-Pretrain \
     --overwrite_output_dir \
     --ddp_timeout 300000 \
     --logging_first_step True \
     --bf16 \
-    --use_peft True \
+    --use_peft False \
     --torch_dtype bfloat16 \
     --device_map auto \
     --ddp_find_unused_parameters False \

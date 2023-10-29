@@ -22,18 +22,18 @@ and dialogues, segmented into three training stages. The medical LLM trained wit
 - [ ] training data
 - [ ] models
 ## 📚 Datasets
-
-- ChiMed-Pretrain
-
-- ChiMed-SFT
-
+Our ChiMed dataset is avalibale at [here](https://huggingface.co/datasets/williamliu/ChiMed/tree/main), which containing the following three parts:
+- ChiMed-Pretrain(`cpt.txt`), 
+- ChiMed-SFT(`sft.jsonl`)
 - ChiMed-DPO
 
 ## Stage 1: Domain-specific Continued Pretraining
+Put the CHiMed-Pretrain data (i.e., `cpt.txt`) at `data/pretrain/`, then run the following scripts.
 ```
 bash run_pt.sh
 ```
 ## Stage 2: Supervised Fine-tuning
+Put the CHiMed-SFT data (i.e., `sft.jsonl`) at `data/sft/`, then run the following scripts.
 ```
 bash run_sft.sh
 ```

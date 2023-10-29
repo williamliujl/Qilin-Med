@@ -470,7 +470,7 @@ def main():
         data_files = {}
         dataset_args = {}
         if data_args.train_file_dir is not None and os.path.exists(data_args.train_file_dir):
-            train_data_files = glob(f'{data_args.train_file_dir}/train.txt', recursive=True)
+            train_data_files = glob(f'{data_args.train_file_dir}/cpt.txt', recursive=True)
             logger.info(f"train files: {', '.join(train_data_files)}")
             data_files["train"] = train_data_files
         extension = "text"

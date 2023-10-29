@@ -396,8 +396,7 @@ def main():
         # Loading a dataset from local files.
         data_files = {}
         if data_args.train_file_dir is not None and os.path.exists(data_args.train_file_dir):
-            train_data_files = glob(f'{data_args.train_file_dir}/*.json', recursive=True) + glob(
-                f'{data_args.train_file_dir}/*.jsonl', recursive=True)
+            train_data_files = glob(f'{data_args.train_file_dir}/sft.jsonl', recursive=True)
             logger.info(f"train files: {train_data_files}")
             data_files["train"] = train_data_files
         raw_datasets = load_dataset(

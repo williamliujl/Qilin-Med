@@ -1,9 +1,9 @@
 torchrun --nproc_per_node 8 scripts/supervised_finetuning.py \
     --model_type baichuan \
     --template_name baichuan-chat \
-    --model_name_or_path /path/to/CPT_model \
-    --train_file_dir /path/to/sft_data \
-    --validation_file_dir /path/to/sft_data \
+    --model_name_or_path ./checkpoints/Qilin-Med-Pretrain \
+    --train_file_dir ./data/sft \
+    --validation_file_dir ./data/sft \
     --deepspeed config/deepspeed_config_zero2.json \
     --per_device_train_batch_size 32 \
     --per_device_eval_batch_size 4 \
