@@ -53,14 +53,14 @@ with open('/data/yqc/Qilin-Med/CMExam/train.json') as f:
     
 final_res = []
     
-for example in tqdm.tqdm(dataset[:5000]):
+for example in tqdm.tqdm(dataset[5000:10000]):
     raw_text = example['conversations'][0]['value']
     question = raw_text.split('只需要返回一个最合适的选项。\n')[1].split('\n注意，结果只有两行，第一行')[0]
     history = copy.copy(messages)
     
     response, history = model.chat(tokenizer, question, history=history)
     
-    with open('/data/yqc/Qilin-Med/CMExam-dpo-temp-0-5000.jsonl', 'a') as f:
+    with open('/data/yqc/Qilin-Med/CMExam-dpo-temp-5000-10000.jsonl', 'a') as f:
         f.write(json.dumps(
             {
                 'instruction': example['conversations'][0]['value'],
@@ -77,6 +77,6 @@ for example in tqdm.tqdm(dataset[:5000]):
         }
     )
 
-with open('/data/yqc/Qilin-Med/CMExam-dpo-0-5000.json', 'w') as f:
+with open('/data/yqc/Qilin-Med/CMExam-dpo-5000-10000.json', 'w') as f:
     json.dump(final_res, f, indent=4)
 

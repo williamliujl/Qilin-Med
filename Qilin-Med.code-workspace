@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../data/yqc/Qilin-Med"
+		},
+		{
+			"path": "../../../data/yqc/chatglm3-6b"
+		}
+	],
+	"settings": {}
+}
